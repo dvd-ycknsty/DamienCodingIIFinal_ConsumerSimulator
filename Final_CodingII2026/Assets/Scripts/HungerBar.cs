@@ -20,7 +20,7 @@ public class Hungerbar : MonoBehaviour
     {
         hungerSlider.value = hunger;
 
-        hunger -= 1f * Time.deltaTime;
+        hunger -= 2f * Time.deltaTime;
 
         if (hunger >= 0)
         {

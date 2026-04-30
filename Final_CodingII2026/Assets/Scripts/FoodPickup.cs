@@ -19,7 +19,7 @@ public class FoodPickup : Interactable
     public void UpHunger()
     {
         hungerbar = FindAnyObjectByType<Hungerbar>();
-        hungerbar.hunger += 20f;
+        hungerbar.hunger += 30f;
         Destroy(gameObject);
         Debug.Log("destroyed");
     }
