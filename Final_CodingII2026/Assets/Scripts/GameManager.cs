@@ -1,16 +1,32 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
-public class SaveManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
+    //static means a variable that belongs to the class itself rather than the specific instance of that class
+    public static GameManager instance;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        
+        //if we dont have a game managager in the next scene, then dont destroy this one
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            //but if we go into the next scene and we do have a game manager then destroy this one
+            Destroy(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void OnReload(InputAction.CallbackContext context)
     {
-        
+        //if we click the button reload the scene we are in
+        if (context.performed) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Debug.Log("reload");
     }
 }
