@@ -13,12 +13,17 @@ public class ObjectSpawner : MonoBehaviour
 
     public Collider culTarget;
 
-    public float hideSpawnedObjDistance = 50f;
+    public float hideSpawnedObjDistance = 30f;
 
     private GameObject[] CurrentSpawnedObj;
 
     private BoxCollider bounds;
 
+
+    void Start()
+        {
+            SpawnObjects();
+        }
     public void SpawnObjects()
     {
         CurrentSpawnedObj = new GameObject[numToSpawn];
@@ -43,6 +48,7 @@ public class ObjectSpawner : MonoBehaviour
 
                 SphereCollider spawnCollider = cullingSphere.AddComponent<SphereCollider>();
                 spawnCollider.radius = hideSpawnedObjDistance;
+
                 CullObject spawnCuller = cullingSphere.AddComponent<CullObject>();
                 spawnCuller.culTarget = culTarget;
             }
