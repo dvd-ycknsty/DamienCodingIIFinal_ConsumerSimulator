@@ -163,7 +163,7 @@ public class Player : MonoBehaviour
 
     public void OnApplicationPause(bool isPaused)
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             isPaused = true;
         }

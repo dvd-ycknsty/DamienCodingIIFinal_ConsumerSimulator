@@ -13,8 +13,6 @@ public class CullObject : MonoBehaviour
     {
         _cullCollider = GetComponent<SphereCollider>();
         _cullCollider.isTrigger = true;
-        _myRender = transform.parent.GetComponent<Renderer>();
-        _myRender.enabled = false;
 
         if (culTarget == null)
         {
