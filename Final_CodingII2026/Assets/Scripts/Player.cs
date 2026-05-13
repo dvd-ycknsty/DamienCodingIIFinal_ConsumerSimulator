@@ -74,43 +74,32 @@ public class Player : MonoBehaviour
     }
 
     private void HandleMovement()
+{
+    bool grounded = cc.isGrounded;
+
+    // Apply gravity every frame
+    verticalVelocity += gravity * Time.deltaTime;
+
+    // Reset velocity when grounded to prevent velocity accumulation
+    if (grounded && verticalVelocity < 0)
     {
-        bool grounded = cc.isGrounded;
-        //Debug.Log("is Grounded:" + grounded);
-
-        //this keeps the cc snapped to the ground
-        if (grounded && verticalVelocity < 0)
-        {
-            verticalVelocity = -2f;
-        }
-
-        float currentSpeed = walkSpeed;
-
-        if (isRunning)
-        {
-            currentSpeed = runSpeed;
-        }
-        else if (!isRunning)
-        {
-            currentSpeed = walkSpeed;
-        }
-
-        Vector3 move = transform.right * moveInput.x * currentSpeed + transform.forward * moveInput.y * currentSpeed;
-
-        if (isJumping && grounded)
-        {
-            verticalVelocity = Mathf.Sqrt(f: jumpHeight * -2f * gravity);
-        }
-        else
-        {
-            isJumping = false;
-        }
-
-        Vector3 velocity = Vector3.up * verticalVelocity;
-        cc.Move(motion: (move + velocity) * Time.deltaTime);
-        //cc.Move
-
+        verticalVelocity = -2f; // Small downward force to keep grounded
     }
+
+    float currentSpeed = isRunning ? runSpeed : walkSpeed;
+
+    Vector3 move = transform.right * moveInput.x * currentSpeed + transform.forward * moveInput.y * currentSpeed;
+
+    // Jump logic - only jump if grounded
+    if (isJumping && grounded)
+    {
+        verticalVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        isJumping = false; // Reset immediately after jumping
+    }
+
+    Vector3 velocity = Vector3.up * verticalVelocity;
+    cc.Move((move + velocity) * Time.deltaTime);
+}
 
     void CheckInteract()
     {

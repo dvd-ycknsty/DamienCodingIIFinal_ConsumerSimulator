@@ -11,6 +11,9 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField]
     [Range(0, 10000)] private float minDistanceBetweenObj = 10;
 
+    [SerializeField]
+    private float spawnHeightY = 0f; // Fixed Y position for spawning
+
     public Collider culTarget;
 
     public float hideSpawnedObjDistance = 30f;
@@ -21,9 +24,10 @@ public class ObjectSpawner : MonoBehaviour
 
 
     void Start()
-        {
-            SpawnObjects();
-        }
+    {
+        SpawnObjects();
+    }
+
     public void SpawnObjects()
     {
         CurrentSpawnedObj = new GameObject[numToSpawn];
@@ -31,9 +35,12 @@ public class ObjectSpawner : MonoBehaviour
 
         for (var i = 0; i < numToSpawn; i++)
         {
-            Vector3 rndPosWithin = new Vector3(Random.Range(-1f, 1f) * bounds.size.x / 2,
+            // Only randomize X and Z, keep Y fixed
+            Vector3 rndPosWithin = new Vector3(
                 Random.Range(-1f, 1f) * bounds.size.x / 2,
-                Random.Range(-1f, 1f) * bounds.size.z / 2);
+                spawnHeightY, // Fixed Y value
+                Random.Range(-1f, 1f) * bounds.size.z / 2
+            );
             rndPosWithin += transform.position;
 
             if (!IsObjectTooClose(rndPosWithin))
