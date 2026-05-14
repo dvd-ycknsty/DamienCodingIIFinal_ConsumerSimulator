@@ -340,6 +340,7 @@ MonoBehaviour:
   - {fileID: 815257145}
   numToSpawn: 20
   minDistanceBetweenObj: 0
+  spawnHeightY: 0
   culTarget: {fileID: 1721183761}
   hideSpawnedObjDistance: 50
 --- !u!65 &653294874
@@ -372,7 +373,7 @@ Transform:
   m_GameObject: {fileID: 653294872}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.04257, y: 3.8, z: 3.05645}
+  m_LocalPosition: {x: 1.04257, y: 1.8, z: 3.05645}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -413,7 +414,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -387, y: 180}
+  m_AnchoredPosition: {x: -283, y: 133}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &712218077
@@ -1043,6 +1044,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0de441ca-61bc-49b7-8c0c-91b2523fbcea
     m_ActionName: 'Player/Interact[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d935362b-24e1-48b8-86b6-5588f0cbd630
+    m_ActionName: 'Player/Pause[/Keyboard/tab]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
@@ -1346,7 +1351,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 283, y: 197}
+  m_AnchoredPosition: {x: 233, y: 160}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1187510321
@@ -1434,7 +1439,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -367.8, y: 165}
+  m_AnchoredPosition: {x: -263.8, y: 118}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1368573823
@@ -2010,7 +2015,6 @@ GameObject:
   - component: {fileID: 2080484753}
   - component: {fileID: 2080484751}
   - component: {fileID: 2080484757}
-  - component: {fileID: 2080484758}
   m_Layer: 0
   m_Name: Grass
   m_TagString: Interactable
@@ -2146,19 +2150,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &2080484758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2080484750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60e9ca2d8a164b842acccf1271c9815d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CullObject
-  culTarget: {fileID: 1721183761}
 --- !u!1 &2086864993
 GameObject:
   m_ObjectHideFlags: 0

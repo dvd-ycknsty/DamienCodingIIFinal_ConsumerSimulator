@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
     private bool isRunning;
     private bool isJumping;
 
+    private bool isPaused = false;
+
 
     void Awake()
     {
@@ -157,6 +159,18 @@ public class Player : MonoBehaviour
     {
         if (context.performed) interactPressed = true;
         //Debug.Log("OnInteract fired. performed=" + context.performed);
+    }
+
+    public void OnApplicationPause(bool isPaused)
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            isPaused = true;
+        }
+        else
+        {
+            isPaused = false;
+        }
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
