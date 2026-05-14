@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
     private bool isJumping;
 
     private bool isPaused = false;
+    private PauseMenu pauseMenu;
 
 
     void Awake()
@@ -49,6 +50,8 @@ public class Player : MonoBehaviour
         //find reticle
         reticleImage = GameObject.Find("Reticle").GetComponent<Image>();
         reticleImage.color = new Color(0, 0, 0, .7f);
+
+        pauseMenu = GameObject.Find("PauseMenu").GetComponent<PauseMenu>();
     }
 
     void Update()
@@ -135,6 +138,22 @@ public class Player : MonoBehaviour
         currentInteractable.Interact(this);
     }
 
+    private void HandlePause()
+{
+    isPaused = !isPaused;
+    
+    if (isPaused)
+    {
+        Time.timeScale = 0f; // Freeze the game
+        pauseMenu.Pause();
+    }
+    else
+    {
+        Time.timeScale = 1f; // Resume the game
+        pauseMenu.Resume();
+    }
+}
+
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
@@ -161,17 +180,13 @@ public class Player : MonoBehaviour
         //Debug.Log("OnInteract fired. performed=" + context.performed);
     }
 
-    public void OnApplicationPause(bool isPaused)
+    public void OnPause(InputAction.CallbackContext context)
+{
+    if (context.performed)
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            isPaused = true;
-        }
-        else
-        {
-            isPaused = false;
-        }
+        HandlePause();
     }
+}
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {

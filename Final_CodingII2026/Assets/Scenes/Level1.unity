@@ -616,6 +616,7 @@ GameObject:
   - component: {fileID: 815257147}
   - component: {fileID: 815257146}
   - component: {fileID: 815257150}
+  - component: {fileID: 815257151}
   m_Layer: 0
   m_Name: Garbage
   m_TagString: Untagged
@@ -737,6 +738,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &815257151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815257145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e9ca2d8a164b842acccf1271c9815d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CullObject
+  culTarget: {fileID: 1721183761}
 --- !u!1 &955400950
 GameObject:
   m_ObjectHideFlags: 0
@@ -2015,6 +2029,7 @@ GameObject:
   - component: {fileID: 2080484753}
   - component: {fileID: 2080484751}
   - component: {fileID: 2080484757}
+  - component: {fileID: 2080484758}
   m_Layer: 0
   m_Name: Grass
   m_TagString: Interactable
@@ -2150,6 +2165,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &2080484758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080484750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e9ca2d8a164b842acccf1271c9815d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CullObject
+  culTarget: {fileID: 1721183761}
 --- !u!1 &2086864993
 GameObject:
   m_ObjectHideFlags: 0

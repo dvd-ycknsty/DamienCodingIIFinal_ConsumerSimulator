@@ -8,15 +8,18 @@ public class CullObject : MonoBehaviour
     private Renderer _myRender;
 
     private SphereCollider _cullCollider;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     private void Start()
     {
         _cullCollider = GetComponent<SphereCollider>();
         _cullCollider.isTrigger = true;
+        
+        // Initializing the renderer
+        _myRender = GetComponent<Renderer>();
 
         if (culTarget == null)
         {
-            Debug.LogWarning("No culling target specified for =" + gameObject + "!");
+            Debug.LogWarning("No culling target specified for " + gameObject + "!");
         }
     }
 

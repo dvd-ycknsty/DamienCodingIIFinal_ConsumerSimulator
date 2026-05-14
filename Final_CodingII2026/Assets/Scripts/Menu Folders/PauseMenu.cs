@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        Time.timeScale = 1f; //to unfreeze the game
         pauseMenu.SetActive(false);
     }
 
